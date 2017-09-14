@@ -1,0 +1,22 @@
+{
+  "name": "bittrex-orderbook-manager",
+  "version": "0.9.0",
+  "description": "Bittrex Orderbook Manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bittrex"
+  ],
+  "author": "Timur Zurbaev <hello@zurbaev.ru>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "cloudscraper": "^1.4.1",
+    "jsonic": "^0.3.0",
+    "lodash": "^4.17.4",
+    "signalr-client": "^0.0.17",
+    "uuid": "^3.1.0"
+  }
+}

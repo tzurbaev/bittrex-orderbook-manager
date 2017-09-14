@@ -21,6 +21,45 @@ $ yarn add bittrex-orderbook-manager
 
 ## Documentation
 
+``` js
+const BittrexClient = require('bittrex-order-manager')
+const bittrex = new BittrexClient()
+
+bittrex.connect()
+    .then(client => console.log('Client created'))
+    .catch(err => console.error('Error', err))
+
+bittrex.on('connected', () => {
+    const collection = bittrex.orderBooksCollection()
+
+    collection.on('ready', () => {
+        console.log(`${collection.count()} orderbooks are ready`)
+
+        // Now you can access any orderbook via collection.orderBooks object.
+        // Please note, that all orderbooks are auto-updated.
+
+        const btcNxt = collection.orderBooks['BTC-NXT']
+
+        btcNxt.on('update', () => {
+            const volumes = {
+                asks: {
+                    inBtc: btcNxt.btcAsksVolume(),
+                    inNxt: btcNxt.asksVolume(),
+                },
+                bids: {
+                    inBtc: btcNxt.btcBidsVolume(),
+                    inNxt: btcNxt.bidsVolume(),
+                }
+            }
+
+            console.log('BTC-NXT was updated, new volumes are: ', volumes)
+        })
+    })
+
+    collection.start()
+})
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
