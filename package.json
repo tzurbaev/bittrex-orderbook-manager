@@ -10,6 +10,15 @@
     "bittrex"
   ],
   "author": "Timur Zurbaev <hello@zurbaev.ru>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tzurbaev/bittrex-orderbook-manager"
+  },
+  "homepage": "https://github.com/tzurbaev/bittrex-orderbook-manager",
+  "bugs": {
+    "url": "https://github.com/tzurbaev/bittrex-orderbook-manager/issues",
+    "email": "zurbaev+github@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
