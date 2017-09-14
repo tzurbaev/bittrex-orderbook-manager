@@ -84,7 +84,11 @@ class BittrexClient extends EventEmitter {
             bindingError: err => this.emit('bindingError', err),
             onUnauthorized: res => this.emit('unauthorized', res),
             reconnected: connection => this.emit('reconnected', connection),
-            reconnecting: retry => this.emit('reconnecting', retry),
+            reconnecting: retry => {
+                this.emit('reconnecting', retry)
+
+                return true
+            },
         }
 
         return client
@@ -108,8 +112,10 @@ class BittrexClient extends EventEmitter {
                 switch (msg['M']) {
                     case 'updateExchangeState':
                         return this.emitUpdateToOrderBooks(msg)
+                    case 'updateSummaryState':
+                        return this.emit('summary', msg['A'])
                     default:
-                        return this.emit(msg)
+                        return this.emit('message', msg)
                 }
             })
         } catch (err) {
