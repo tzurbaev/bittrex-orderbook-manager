@@ -150,6 +150,8 @@ class BittrexClient extends EventEmitter {
 
             item.handler(item.uuid, update)
         })
+
+        this.emit('orderBookUpdate', market, update)
     }
 
     /**
