@@ -78,7 +78,11 @@ class BittrexClient extends EventEmitter {
             connectFailed: err => this.emit('connectFailed', err),
             connected: connection => this.emit('connected', connection, this),
             connectionLost: err => this.emit('connectionLost', err),
-            disconnected: () => this.emit('disconnected'),
+            disconnected: () => {
+                this.emit('disconnected')
+
+                client.start()
+            },
             onerror: err => this.emit('error', err),
             messageReceived: message => this.emitMessage(message),
             bindingError: err => this.emit('bindingError', err),
