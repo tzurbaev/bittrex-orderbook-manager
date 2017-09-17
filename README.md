@@ -77,7 +77,7 @@ bittrex.connect()
 bittrex.on('connected', () => {
     const orderBook = bittrex.orderBook('BTC-NXT')
 
-    orderBook.on('started), () => console.log('BTC-NXT orderbook was started!'))
+    orderBook.on('started, () => console.log('BTC-NXT orderbook was started!'))
     orderBook.on('update', () => {
         const volumes = {
             asks: {
@@ -123,7 +123,7 @@ orderBooksCollection.on('ready' => console.log('Orderbooks collection is ready')
 - `reconnecting(retry)`
 
 ##### Market-related events
-- `summary(payload)` - emitted when client receives market summary state updates;
+- `summary(payload)` - emits when client receives market summary state updates;
 - `orderBookUpdate(marketName, payload)` - emits when any registered orderbook being updated.
 
 #### BittrexOrderBook
