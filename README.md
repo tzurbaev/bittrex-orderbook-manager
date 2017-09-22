@@ -77,7 +77,7 @@ bittrex.connect()
 bittrex.on('connected', () => {
     const orderBook = bittrex.orderBook('BTC-NXT')
 
-    orderBook.on('started, () => console.log('BTC-NXT orderbook was started!'))
+    orderBook.on('started', () => console.log('BTC-NXT orderbook was started!'))
     orderBook.on('update', () => {
         const volumes = {
             asks: {

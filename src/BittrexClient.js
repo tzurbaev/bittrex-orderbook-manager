@@ -18,12 +18,12 @@ class BittrexClient extends EventEmitter {
         super()
 
         this.client = null
-        this.options = extend(options, {
+        this.options = extend({
             url: 'wss://socket.bittrex.com/signalr',
             marketsUrl: `https://bittrex.com/api/v1.1/public/getmarkets`,
             hubs: ['CoreHub'],
             reconnectionTimeout: 10,
-        })
+        }, options)
 
         this.orderBooks = {}
     }
