@@ -55,6 +55,8 @@ class OrderBooksCollection extends EventEmitter {
                 }
             })
 
+            orderBook.on('error', e => this.emit('error', e))
+
             this.orderBooks[orderBook.market] = orderBook
 
             orderBook.start()

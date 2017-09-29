@@ -1,6 +1,6 @@
 {
   "name": "bittrex-orderbook-manager",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Bittrex Orderbook Manager",
   "main": "index.js",
   "scripts": {
