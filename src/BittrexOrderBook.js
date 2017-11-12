@@ -85,11 +85,15 @@ class BittrexOrderBook extends EventEmitter {
      * @param {object} payload
      */
     fillOrderBook(payload) {
-        if (payload['Buys'].length > 0) {
+        if (!payload) {
+            return
+        }
+
+        if (typeof payload['Buys'] !== 'undefined' && payload['Buys'] && payload['Buys'].length > 0) {
             payload['Buys'].forEach(buy => this.processOrder('bids', buy, true))
         }
 
-        if (payload['Sells'].length > 0) {
+        if (typeof payload['Sells'] !== 'undefined' && payload['Sells'] && payload['Sells'].length > 0) {
             payload['Sells'].forEach(sell => this.processOrder('asks', sell, true))
         }
     }

@@ -71,7 +71,7 @@ class BittrexClient extends EventEmitter {
         )
 
         client.headers['User-Agent'] = get(response, 'request.headers.User-Agent', '')
-        client.headers['cookies'] = get(response, 'request.headers.cookie', '')
+        client.headers['cookie'] = get(response, 'request.headers.cookie', '')
 
         client.serviceHandlers = {
             bound: () => this.emit('bound'),
